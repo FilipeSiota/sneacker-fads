@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="carrocel.css">
+    <style>/* Stylesheet 1: */
+    body {
+        font: 100% Lucida Sans, Verdana;
+        margin: 20px;
+        line-height: 26px;
+    }
+
+    .container {
+        min-width: 900px;
+    }
+
+    .wrapper {
+        position: relative;
+        overflow: auto;
+    }
+
+    #top, #sidebar, #bottom, .menuitem {
+        border-radius: 4px;
+        margin: 4px;
+    }
+
+    #top {
+        background-color: #04AA6D;
+        color: #ffffff;
+        padding: 15px;
+    }
+
+    #menubar {
+        width: 200px;
+        float: left
+    }
+
+    #main {
+        padding: 10px;
+        margin: 0 210px;
+    }
+
+    #sidebar {
+        background-color: #32a4e7;
+        color: #ffffff;
+        padding: 10px;
+        width: 180px;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        position: absolute;
+    }
+
+    #bottom {
+        border: 1px solid #d4d4d4;
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 10px;
+        font-size: 70%;
+        line-height: 14px;
+    }
+
+    #top h1, #top p, #menulist {
+        margin: 0;
+        padding: 0;
+    }
+
+    .menuitem {
+        background-color: #f1f1f1;
+        border: 1px solid #d4d4d4;
+        list-style-type: none;
+        padding: 2px;
+        cursor: pointer;
+    }
+
+    .menuitem:hover {
+        background-color: #ffffff;
+    }
+
+    .menuitem:nth-child(2) {
+        background-color: #04AA6D;
+        color: white;
+        font-weight: bold;
+    }
+
+    a {
+        color: #000000;
+        text-decoration: underline;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+
+    @media (max-width: 800px) {
+        #sidebar {
+            width: auto;
+            position: relative;
+        }
+
+        #main {
+            margin-right: 0;
+        }
+
+    }
+
+    @media (max-width: 600px) {
+        #menubar {
+            width: auto;
+            float: none;
+        }
+
+        #main {
+            margin: 0;
+        }
+    }
+    </style>
+    <title>Trabalho Final</title>
+</head>
+<body>
+
+<div class="container wrapper">
+    <div id="top">
+        <h1>Clínica Fictícia</h1>
+        <p>Sistema de Agendamentos Online</p>
+    </div>
+    <div class="wrapper">
+        <div id="menubar">
+            <ul id="menulist">
+                <li class="menuitem"><a href="index.html">Seu trabalho</a></li>
+                <li class="menuitem"><a href="trabalho_final_exemplo1.html">Exemplo 1</a></li>
+                <li class="menuitem"><a href="trabalho_final_exemplo2.html">Exemplo 2</a></li>
+                <li class="menuitem"><a href="trabalho_final_exemplo3.html">Exemplo 3</a></li>
+            </ul>
+        </div>
+        <div id="main">
+            <h1>Agendamentos</h1>
+            <p>Esta é uma demonstração de possíveis links para agendamentos:<br>
+                <a href="#">Médico</a>,
+                <a href="#">Psicólogo</a>,
+                <a href="#">Fisioterapeuta</a>,
+                <a href="#">Enfermeiro</a>.
+            </p>
+
+            <h2>Exemplo com Slides</h2>
+            <section class="carousel" aria-label="Gallery">
+                <ol class="carousel__viewport">
+                    <li id="carousel__slide1"
+                        tabindex="0"
+                        class="carousel__slide">
+                        <div class="carousel__snapper">
+                            <a href="#carousel__slide4"
+                               class="carousel__prev">Último Slide</a>
+                            <a href="#carousel__slide2"
+                               class="carousel__next">Próximo Slide</a>
+                        </div>
+                    </li>
+                    <li id="carousel__slide2"
+                        tabindex="0"
+                        class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide1"
+                           class="carousel__prev">Slide Anterior</a>
+                        <a href="#carousel__slide3"
+                           class="carousel__next">Próximo Slide</a>
+                    </li>
+                    <li id="carousel__slide3"
+                        tabindex="0"
+                        class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide2"
+                           class="carousel__prev">Slide Anterior</a>
+                        <a href="#carousel__slide4"
+                           class="carousel__next">Próximo Slide</a>
+                    </li>
+                    <li id="carousel__slide4"
+                        tabindex="0"
+                        class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide3"
+                           class="carousel__prev">Slide anterior</a>
+                        <a href="#carousel__slide1"
+                           class="carousel__next">Primeiro slide</a>
+                    </li>
+                </ol>
+                <aside class="carousel__navigation">
+                    <ol class="carousel__navigation-list">
+                        <li class="carousel__navigation-item">
+                            <a href="#carousel__slide1"
+                               class="carousel__navigation-button">Ir para o slide 1</a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                            <a href="#carousel__slide2"
+                               class="carousel__navigation-button">Ir para o slide 2</a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                            <a href="#carousel__slide3"
+                               class="carousel__navigation-button">Ir para o slide 3</a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                            <a href="#carousel__slide4"
+                               class="carousel__navigation-button">Ir para o slide 4</a>
+                        </li>
+                    </ol>
+                </aside>
+            </section>
+
+            <h2>Exemplo com Imagens</h2>
+            <section>
+                <img src="logo_ifrs.jpg" alt="Instituto Federal do Rio Grande do Sul - IFRS"/>
+            </section>
+        </div>
+        <div id="sidebar">
+            <h3>Side-Bar</h3>
+            <p>Aqui pode conter textos ou elementos típicos de sidebar (que não necessáriamente precisam ser exibidos em
+                uma barra lateral, pois é o CSS [você, no caso] quem define)</p>
+        </div>
+    </div>
+
+
+    <div id="bottom">
+        Aqui pode conter um texto, links, elementos, etc. típicos de rodapé. <br>Adicione o seu nome completo aqui.
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="carrocel.css">
+
+    <style>/* Stylesheet 3: */
+
+    body {
+        font: 100% Verdana;
+        margin: 20px;
+        line-height: 26px;
+    }
+
+    .container {
+        min-width: 900px;
+    }
+
+    .wrapper {
+        position: relative;
+        overflow: auto;
+    }
+
+    #sidebar {
+        background-color: #f1f1f1;
+        border: 1px solid #d4d4d4;
+        padding-left: 10px;
+    }
+
+    #bottom {
+        text-align: center;
+        padding: 10px;
+        font-size: 70%;
+        line-height: 14px;
+    }
+
+    h1, h2, h3 {
+        color: #4CAF50;
+    }
+
+    #menulist {
+        padding: 0;
+        position: relative;
+        overflow: auto;
+    }
+
+    .menuitem {
+        width: 165px;
+        float: left;
+        background-color: #555555;
+        color: #ffffff;
+        list-style-type: none;
+        margin: 4px;
+        padding: 2px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .menuitem-selected {
+        background-color: #04AA6D;
+    }
+
+    .menuitem:hover {
+        background-color: #000;
+    }
+
+    a {
+        color: #000000;
+    }
+
+    a:hover {
+        color: #84c754;
+    }
+    </style>
+
+    <title>Trabalho Final</title>
+</head>
+<body>
+
+<div class="container wrapper">
+    <div id="top">
+        <h1>Clínica Fictícia</h1>
+        <p>Sistema de Agendamentos Online</p>
+    </div>
+    <div class="wrapper">
+        <div id="menubar">
+            <ul id="menulist">
+                <a href="index.html"><li class="menuitem">Seu trabalho</li></a>
+                <a href="trabalho_final_exemplo1.html"><li class="menuitem">Exemplo 1</li></a>
+                <a href="trabalho_final_exemplo2.html"><li class="menuitem">Exemplo 2</li></a>
+                <a href="trabalho_final_exemplo3.html"><li class="menuitem menuitem-selected">Exemplo 3</li></a>
+            </ul>
+        </div>
+        <div id="main">
+            <h1>Agendamentos</h1>
+            <p>Esta é uma demonstração de possíveis links para agendamentos:<br>
+                <a href="#">Médico</a>,
+                <a href="#">Psicólogo</a>,
+                <a href="#">Fisioterapeuta</a>,
+                <a href="#">Enfermeiro</a>.
+            </p>
+
+            <h2>Exemplo com Slides</h2>
+            <section class="carousel" aria-label="Gallery">
+                <ol class="carousel__viewport">
+                    <li id="carousel__slide1"
+                        tabindex="0"
+                        class="carousel__slide">
+                        <div class="carousel__snapper">
+                            <a href="#carousel__slide4"
+                               class="carousel__prev">Último Slide</a>
+                            <a href="#carousel__slide2"
+                               class="carousel__next">Próximo Slide</a>
+                        </div>
+                    </li>
+                    <li id="carousel__slide2"
+                        tabindex="0"
+                        class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide1"
+                           class="carousel__prev">Slide Anterior</a>
+                        <a href="#carousel__slide3"
+                           class="carousel__next">Próximo Slide</a>
+                    </li>
+                    <li id="carousel__slide3"
+                        tabindex="0"
+                        class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide2"
+                           class="carousel__prev">Slide Anterior</a>
+                        <a href="#carousel__slide4"
+                           class="carousel__next">Próximo Slide</a>
+                    </li>
+                    <li id="carousel__slide4"
+                        tabindex="0"
+                        class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide3"
+                           class="carousel__prev">Slide anterior</a>
+                        <a href="#carousel__slide1"
+                           class="carousel__next">Primeiro slide</a>
+                    </li>
+                </ol>
+                <aside class="carousel__navigation">
+                    <ol class="carousel__navigation-list">
+                        <li class="carousel__navigation-item">
+                            <a href="#carousel__slide1"
+                               class="carousel__navigation-button">Ir para o slide 1</a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                            <a href="#carousel__slide2"
+                               class="carousel__navigation-button">Ir para o slide 2</a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                            <a href="#carousel__slide3"
+                               class="carousel__navigation-button">Ir para o slide 3</a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                            <a href="#carousel__slide4"
+                               class="carousel__navigation-button">Ir para o slide 4</a>
+                        </li>
+                    </ol>
+                </aside>
+            </section>
+
+            <h2>Exemplo com Imagens</h2>
+            <section>
+                <img src="logo_ifrs.jpg" alt="Instituto Federal do Rio Grande do Sul - IFRS"/>
+            </section>
+        </div>
+        <div id="sidebar">
+            <h3>Side-Bar</h3>
+            <p>Aqui pode conter textos ou elementos típicos de sidebar (que não necessáriamente precisam ser exibidos em
+                uma barra lateral, pois é o CSS [você, no caso] quem define)</p>
+        </div>
+    </div>
+
+
+    <div id="bottom">
+        Aqui pode conter um texto, links, elementos, etc. típicos de rodapé. <br>Adicione o seu nome completo aqui.
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,478 @@
+/* # MAIN
+=====================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+
+:root {
+    font-size: 62.5%;
+
+    --theme1: rgb(4, 75, 216);
+    --theme2: rgb(31, 76, 165);
+    --theme3: rgb(32, 191, 146);
+    --theme4: rgb(255, 255, 255);
+    --theme5: rgb(216, 4, 4);
+    --theme6: #0E0B16;
+    --theme7: #4717F6;
+    --theme8: rgb(216, 121, 4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body.disable-scroll {
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+
+    min-width: 100%;
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 900px) {
+    :root {
+        font-size: 60%;
+    }
+}
+
+/*===========================================================
+# MENU
+===========================================================*/
+
+#header {
+    background-color: var(--theme4);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100px;
+    padding: 0 30px;
+
+    position: relative;
+    top: 0;
+
+    z-index: 15;
+}
+
+#header #brand {
+    min-width: 230px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    text-align: center;
+    line-height: 1.2;
+
+    color: var(--theme6);
+}
+
+#header #brand h1 {
+    font-size: 3rem;
+}
+
+#header #brand p {
+    font-size: 1.2rem;
+}
+
+#header #menubar {
+    width: 100%;
+    padding-left: 30px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#header #menubar #menu-icon {
+    display: none;
+}
+
+#header #menubar #menulist {
+    list-style: none;
+
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 800px;
+    width: 100%;
+}
+
+#header #menubar #menulist .menuitem a {
+    padding: 1rem 2.5rem;
+    color: var(--theme6);
+
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 2px dashed transparent;
+    border-radius: 20px;
+
+    transition: all ease 0.4s;
+}
+
+#header #menubar #menulist .menuitem a:hover {
+    border-color: var(--theme6);
+}
+
+#header #menubar #menulist .menuitem a:active, #header #menubar #menulist #selected {
+    background-color: var(--theme6);
+    color: var(--theme4);
+}
+
+@media screen and (max-width: 900px) {
+    #header #brand {
+        min-width: 100%;
+    }
+
+    #header #menubar #menu-icon {
+        display: block;
+        width: 22px;
+        height: 22px;
+
+        position: absolute;
+        top: 50%;
+        right: 25px;
+        transform: translateY(-50%); /* tira metade do tamanho do objeto */
+
+        cursor: pointer;
+    }
+
+    #header #menubar #menu-icon svg {
+        fill: var(--theme6);
+        width: 100%;
+        height: 100%;
+    }
+
+    #header #menubar #menulist {
+        position: absolute;
+        right: 0;
+        top: 100px;
+
+        width: 100%;
+        height: 0;
+
+        background-color: var(--theme4);
+        color: var(--theme6);
+        
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        overflow-y: auto;
+
+        transition: height ease 0.4s, padding ease 0.4s;
+
+        z-index: 10;
+    }
+
+    #header #menubar #menulist.open {
+        height: calc(100vh - 100px);
+        padding: 2rem 0;
+        
+        border-top: 2px dashed var(--theme6);
+    }
+
+    #header #menubar #menulist .menuitem {
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    #header #menubar #menulist .menuitem a {
+        padding: 1rem 3rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #header {
+        justify-content: space-evenly;
+    }
+
+    #header #brand {
+        min-width: none;
+    }
+
+    #header #menubar #menu-icon {
+        position: relative;
+        transform: translateY(0%);
+    }
+}
+
+/*===========================================================
+# MAIN CONTENT
+===========================================================*/
+
+.wrapper #main .image-effect {
+    width: 100%;
+    height: 400px;
+
+    background-image: url(../img/prateleira-tenis-1280px.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper #main .image-effect h1, .wrapper .image-effect p, .wrapper .image-effect a {
+    background-color: var(--theme4);
+    color: var(--theme6);
+}
+
+.wrapper #main .image-effect h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    padding: 1rem 1rem 0.5rem 1rem;
+    border-radius: 5px 5px 0 0;
+}
+
+.wrapper #main .image-effect p {
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.wrapper #main .image-effect a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+
+    transition: all 0.4s ease;
+}
+
+.wrapper #main .image-effect a:hover {
+    transform: scale(1.1);
+}
+
+.wrapper #main .show-shoes {
+    display: block;
+    text-align: center;
+    padding: 40px 0;
+
+    position: relative;
+}
+
+.wrapper #main .show-shoes h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    font-size: 2.5rem;
+}
+
+.wrapper #main #promo h1 {
+    text-transform: uppercase;
+}
+
+.wrapper #main .show-shoes .shoe {
+    background-color: var(--theme6);
+    box-shadow: 0 0 10px var(--theme6);
+    color: var(--theme4);
+
+    display: inline-block;
+    max-width: 400px;
+    width: 100%;
+    height: fit-content;
+
+    padding: 20px 0;
+    margin: 10px;
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.wrapper #main .show-shoes .shoe.best-seller {
+    background-color: var(--theme7);
+    box-shadow: 0 0 10px var(--theme7);
+}
+
+.wrapper #main .show-shoes .shoe img {
+    margin-bottom: 10px;
+
+    max-width: 100%;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+
+    transition: all 0.4s ease;
+}
+
+.wrapper #main .show-shoes .shoe:hover img {
+    transform: scale(1.05);
+}
+
+.wrapper #main .show-shoes .shoe h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.wrapper #main .show-shoes .shoe p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.wrapper #main .show-shoes .shoe del {
+    text-decoration: line-through;
+}
+
+.wrapper #main .show-shoes .shoe del::before {
+    content: 'De: ';
+}
+
+.wrapper #main .show-shoes .shoe ins {
+    color: var(--theme3);
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+
+.wrapper #main .show-shoes .shoe ins::before {
+    content: 'Por: ';
+    font-weight: normal;
+    color: var(--theme4);
+}
+
+.wrapper #main .show-shoes .shoe .product-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.wrapper #main .show-shoes .shoe .product-options i {
+    font-size: 2rem;
+    transition: color 0.4s ease;
+    cursor: pointer;
+}
+
+.wrapper #main .show-shoes .shoe .product-options i:hover {
+    opacity: 0.8;
+}
+
+.wrapper #main .show-shoes .shoe .product-options .icon-heart.turn-red {
+    color: red;
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper #main .image-effect {
+        background-image: url(../img/prateleira-tenis-900px.jpg);
+    }
+    
+    .wrapper #main .image-effect h1 {
+        font-size: 3rem;
+    }
+    
+    .wrapper #main .image-effect p {
+        font-size: 1.5rem;
+    }
+    
+    .wrapper #main .image-effect a {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .wrapper #main .show-shoes .shoe {
+        width: calc(100% - 20px);
+    }
+}
+
+/*===========================================================
+# FOOTER
+===========================================================*/
+
+#bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: fit-content;
+    padding: 2rem 0;
+
+    background-color: var(--theme6);
+    color: var(--theme4);
+    text-align: center;
+
+    position: relative;
+    bottom: 0;
+}
+
+#bottom p {
+    font-size: 12px;
+}
+
+#bottom #data a {
+    text-decoration: none;
+    color: var(--theme3);
+}
+
+#bottom #data a:hover {
+    text-decoration: underline;
+}
+
+/*===========================================================
+# BOTÃO DE VOLTA PARA O TOPO DA PÁGINA
+===========================================================*/
+
+#btn-to-top {
+    background-color: var(--theme7);
+    text-decoration: none;
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    padding: 1.4rem;
+
+    border-radius: 50%;
+
+    z-index: 5;
+    cursor: pointer;
+}
+
+#btn-to-top svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--theme4);
+}
+
+@media screen and (max-width: 900px) {
+    #btn-to-top {
+        top: 30px;
+        right: 50%;
+        transform: translateX(50%);
+
+        width: 45px;
+        height: 45px;
+        padding: 1.4rem;
+    }
+}
