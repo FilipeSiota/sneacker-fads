@@ -51,11 +51,35 @@
         <div class="wrapper">
 
             <div id="main">
-                <div class="image-effect">
+                <div class="image-effect" id="slide">
+                    <i onclick="changeBackground();" id="left" class="fi fi-sr-angle-double-left"></i>
+                    <i onclick="changeBackground();" id="right" class="fi fi-sr-angle-double-right"></i>
+
                     <h1>Promoção</h1>
                     <p>Leve 3 tênis por apenas R$250,00</p>
 
                     <a href="#best-sellers">Venha conferir</a>
+                </div>
+
+                <div id="search-bar">
+                    <div id="searching">
+                        <input list="shoes" type="text" id="search" placeholder="Procure por um tênis">
+
+                        <datalist id="shoes">
+                            <option value="Air Jordan 1 Retro High"></option>
+                            <option value="Tênis Nike Giannis Immortality I"></option>
+                            <option value="Adidas Yeezy Boost 350 V2 Carbon"></option>
+                            <option value="Tênis Adidas D Rose 773 2020"></option>
+                        </datalist>
+
+                        <button id="getSearch"><i class="fi fi-rr-search"></i></button>
+                    </div>
+                    
+                    <div id="content-plus-link" style="display: none; margin-top: 10px;">
+                        <p id="extra"></p>
+                        <a id="link-creator" href="#" target="_blank"></a>
+                    </div>
+                    
                 </div>
 
                 <div class="show-shoes" id="best-sellers">
@@ -189,6 +213,7 @@
             <p>Designed by Filipe Mallmann Siota</p>
 
             <script>
+                // UMA FORMA DE OUTPUT RESULTANTE DE CÓDIGO JAVASCRIPT >> .innerHTML
                 var data = new Date();
                 var anoAtual = data.getFullYear();
                 document.getElementById('data').innerHTML += "&copy;&nbsp;<a href='https://filipe.siota.com.br/ifrs/css/sneacker-fads/' target='_blank'>Sneacker Fads</a>&nbsp;" + anoAtual;
