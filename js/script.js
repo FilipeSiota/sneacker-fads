@@ -51,7 +51,6 @@ cartIcon.forEach(cart => {
 
 // MODIFICA ATRIBUTO HREF DE UM LINK QUE SERÁ USADO PARA PESQUISA E ALTERA O CONTEÚDO DO PARÁGRAFO PARA ESTAR DE ACORDO COM A PESQUISA
 
-const divSearch = document.getElementById('searching');
 const divContent = document.getElementById('content-plus-link');
 const input = document.getElementById('search');
 const btnSearch = document.getElementById('getSearch');
@@ -65,7 +64,6 @@ btnSearch.addEventListener('click', () => {
 
     if (content != "") {
 
-        divSearch.style.display = "flex";
         divContent.style.display = "block";
 
         extraContent.innerHTML = "Dê uma olhadinha no site da nossa patrocinadora <strong>Netshoes</strong>, talvez você encontre o produto:<br>&quot;" + content + "&quot;";
@@ -73,5 +71,9 @@ btnSearch.addEventListener('click', () => {
         link.href = "https://www.netshoes.com.br/busca?q=" + content;
 
         link.innerText = "Clique aqui";
+    }
+    else
+    {
+        divContent.style.display = "none";
     }
 })
