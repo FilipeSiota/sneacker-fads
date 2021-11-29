@@ -42,10 +42,22 @@ heartIcon.forEach(heart => {
 const cartIcon = document.querySelectorAll('.fi-sr-shopping-cart-add');
 
 cartIcon.forEach(cart => {
-    cart.addEventListener('click', () => {
-        window.alert("Produto adicionado ao carrinho com sucesso!");
+    var cont = 0;
 
-        cart.style.color = "var(--theme3)";
+    cart.addEventListener('click', () => {
+
+        if (cont % 2 === 0)
+        {
+            window.alert("Produto adicionado ao carrinho com sucesso!");
+
+            cart.style.color = "var(--theme3)";
+        }
+        else
+        {
+            cart.style.color = "var(--theme4)";
+        }
+
+        cont++;
     })
 })
 
@@ -77,3 +89,47 @@ btnSearch.addEventListener('click', () => {
         divContent.style.display = "none";
     }
 })
+
+// Utiliza getElementById, getElementsByTagName, querySelector e querySelectorAll para selecionar elementos da DOM
+
+const btnReveal = document.getElementById("reveal-prices");
+const priceBestSeller = document.querySelectorAll(".best-seller p");
+const delPrice = document.getElementsByTagName("del");
+const newPrice = document.getElementsByTagName("ins");
+
+btnReveal.addEventListener('click', () => {
+    priceBestSeller.forEach(price => {
+        price.innerText = "R$159,99";
+        price.style.backgroundColor = "var(--theme4)";
+        price.style.color = "var(--theme7)";
+        price.style.fontWeight = "bold";
+    });
+
+    for (var i = 0; i < delPrice.length; i++)
+    {
+        delPrice[i].innerText = newPrice[i].innerText;
+        newPrice[i].innerText = "R$129,99";
+        newPrice[i].style.backgroundColor = "var(--theme7)";
+    }
+
+    document.querySelector(".image-effect h1").innerText = "Black Friday";
+    document.querySelector(".image-effect p").style.display = "none";
+    document.getElementById("promo").getElementsByTagName("h1")[0].innerText = "Confira nossa Black Friday";
+})
+
+// Utiliza getElementsByClassName para selecionar elementos da DOM
+
+const eye = document.getElementsByClassName("fi-sr-eye");
+
+for (var i = 0; i < eye.length; i++)
+{
+    eye[i].addEventListener("click", () => {
+        window.location.assign("https://images.lojanike.com.br/1024x1024/produto/tenis-air-jordan-1-retro-high-og-555088-180-1.jpg");
+    })
+}
+
+// Mostra atualizações através do window.alert
+
+function showUpdates(text) {
+    window.alert(text);
+}

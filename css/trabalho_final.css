@@ -16,7 +16,7 @@
     --theme6: #0E0B16;
     --theme7: #4717F6;
     --theme8: rgb(216, 121, 4);
-    --theme9: rgb(182, 182, 182);
+    --theme9: rgb(228, 228, 228);
 }
 
 * {
@@ -28,6 +28,7 @@
 }
 
 html, body {
+    scroll-behavior: smooth;
     min-height: 100vh;
     min-width: 320px;
 }
@@ -276,7 +277,8 @@ body.disable-scroll {
     font-size: 4rem;
     text-transform: uppercase;
     padding: 1rem 1rem 0.5rem 1rem;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .wrapper #main .image-effect p {
@@ -362,18 +364,19 @@ body.disable-scroll {
     color: var(--theme7);
 }
 
-#search-bar #link-creator {
+#search-bar #link-creator, .btn {
     text-decoration: none;
     background-color: var(--theme7);
     color: var(--theme4);
     padding: 5px 10px;
     border-radius: 10px;
     border: 2px solid transparent;
+    cursor: pointer;
 
     transition: all 0.4s ease;
 }
 
-#search-bar #link-creator:hover {
+#search-bar #link-creator:hover, .btn:hover {
     background-color: var(--theme4);
     color: var(--theme7);
     border-color: var(--theme7);
@@ -386,7 +389,7 @@ body.disable-scroll {
 .wrapper #main .show-shoes {
     display: block;
     text-align: center;
-    padding: 40px 0;
+    padding: 40px 0 0 0;
 
     position: relative;
 }
@@ -492,6 +495,24 @@ body.disable-scroll {
 }
 
 /*===========================================================
+# MUDA VISUAL
+===========================================================*/
+
+#black-friday {
+    display: flex;
+    justify-content: center;
+    margin: 0 10px;
+    padding: 40px 0;
+}
+
+#black-friday .btn {
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.7rem;
+}
+
+/*===========================================================
 # ESTILIZAÇÃO MOBILE DA MAIN
 ===========================================================*/
 
@@ -548,6 +569,16 @@ body.disable-scroll {
 
     position: relative;
     bottom: 0;
+}
+
+#bottom #show-updates {
+    margin-bottom: 20px;
+}
+
+#bottom #show-updates:hover {
+    background-color: transparent;
+    border-color: var(--theme4);
+    color: var(--theme4);
 }
 
 #bottom p {
