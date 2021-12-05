@@ -1,39 +1,73 @@
-// DROPDOWN MENU
-const menuIcon = document.querySelector('#menu-icon');
-const menuList = document.querySelector('#menulist');
-const body = document.body;
+// IMPLEMENTANDO JQUERY
 
-menuIcon.addEventListener('click', () => {
-    menuList.classList.toggle('open');
+$(document).ready(function() {
 
-    body.classList.toggle('disable-scroll');
-})
+    // DROPDOWN MENU
 
-// TROCA O BACKGROUND-IMAGE DA DIV IMAGE-EFFECT ==> ALTERAÇÃO DE ESTILO DE UM ELEMENTO HTML
+    const menuIcon = $('#menu-icon');
+    const menuList = $('#menu-mobile');
+    const body = $('body');
+    var open = false;
 
-const imageEffect = document.getElementById('slide');
-var i = 0;
+    menuIcon.click(function() {
+        menuList.slideToggle('slow');
 
-function changeBackground() {
-    if (i % 2 == 0)
-    {
-        imageEffect.style.backgroundImage = "url(../img/lil_nas_x_nike_1280px.jpg)";
-    }
-    else
-    {
-        imageEffect.style.backgroundImage = "url(../img/prateleira-tenis-1280px.jpg)";
-    }
+        if (!open)
+        {
+            body.css('overflow', 'hidden');
 
-    i++;
-}
+            open = true;
+        }
+        else
+        {
+            body.css('overflow', 'auto');
 
-// TROCA COR DO ICONE DE CORAÇÃO
+            open = false;
+        }
+        
+    })
 
-const heartIcon = document.querySelectorAll('.icon-heart');
+    // TROCA O BACKGROUND-IMAGE DA DIV IMAGE-EFFECT ==> ALTERAÇÃO DE ESTILO DE UM ELEMENTO HTML
 
-heartIcon.forEach(heart => {
-    heart.addEventListener('click', () => {
-        heart.classList.toggle('turn-red');
+    const imageEffect = $('#slide');
+    const btnSlide = $('.changeImage');
+    var slide = false;
+
+    btnSlide.click(function() {
+        if (!slide)
+        {
+            imageEffect.css('background-image', 'url(../img/lil_nas_x_nike_1280px.jpg)');
+
+            slide = true;
+        }
+        else
+        {
+            imageEffect.css('background-image', 'url(../img/prateleira-tenis-1280px.jpg)');
+
+            slide = false;
+        }
+    })
+
+    // TROCA COR DO ICONE DE CORAÇÃO
+
+    const heartIcon = $('.icon-heart');
+    var liked = false;
+
+    heartIcon.click(function() {
+
+        if (!liked)
+        {
+            $(this).css('color', 'red');
+
+            liked = true;
+        }
+        else
+        {
+            $(this).css('color', 'var(--theme4)');
+
+            liked = false;
+        }
+
     })
 })
 
@@ -42,22 +76,24 @@ heartIcon.forEach(heart => {
 const cartIcon = document.querySelectorAll('.fi-sr-shopping-cart-add');
 
 cartIcon.forEach(cart => {
-    var cont = 0;
+    var addCart = false;
 
     cart.addEventListener('click', () => {
 
-        if (cont % 2 === 0)
+        if (!addCart)
         {
             window.alert("Produto adicionado ao carrinho com sucesso!");
 
             cart.style.color = "var(--theme3)";
+
+            addCart = true;
         }
         else
         {
             cart.style.color = "var(--theme4)";
-        }
 
-        cont++;
+            addCart = false;
+        }
     })
 })
 
@@ -69,10 +105,8 @@ const btnSearch = document.getElementById('getSearch');
 const extraContent = document.getElementById('extra');
 const link = document.getElementById('link-creator');
 
-var content;
-
 btnSearch.addEventListener('click', () => {
-    content = input.value;
+    var content = input.value;
 
     if (content != "") {
 

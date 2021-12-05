@@ -1,4 +1,7 @@
-# CÓDIGOS IMPLEMENTANDO JAVASCRIPT
+# IMPLEMENTANDO JQUERY
 
-- Clicar no botão "Novos preços da Black Friday" e conferir algumas atualizações na página;
-- Clicar no ícone de olho para visualizar a imagem do tênis maior.
+Verificar arquivo `script.js`:
+
+- a partir da linha 1: **DROPDOWN MENU**
+- a partir da linha 30: **TROCA O BACKGROUND-IMAGE DA DIV IMAGE-EFFECT**
+- a partir da linha 51: **TROCA COR DO ICONE DE CORAÇÃO**

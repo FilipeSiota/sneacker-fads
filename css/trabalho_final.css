@@ -33,10 +33,6 @@ html, body {
     min-width: 320px;
 }
 
-body.disable-scroll {
-    overflow: hidden;
-}
-
 .container {
     position: relative;
 
@@ -107,14 +103,16 @@ body.disable-scroll {
     display: none;
 }
 
+#header #menubar #menu-mobile {
+    max-width: 800px;
+    width: 100%;
+}
+
 #header #menubar #menulist {
     list-style: none;
 
     display: flex;
     justify-content: space-between;
-
-    max-width: 800px;
-    width: 100%;
 }
 
 #header #menubar #menulist .menuitem a {
@@ -163,32 +161,30 @@ body.disable-scroll {
         height: 100%;
     }
 
-    #header #menubar #menulist {
+    #header #menubar #menu-mobile {
+        display: none;
         position: absolute;
         right: 0;
         top: 100px;
 
         width: 100%;
-        height: 0;
-
-        background-color: var(--theme4);
-        color: var(--theme6);
-        
-        flex-direction: column;
-        justify-content: space-evenly;
-
-        overflow-y: auto;
-
-        transition: height ease 0.4s, padding ease 0.4s;
-
-        z-index: 10;
-    }
-
-    #header #menubar #menulist.open {
         height: calc(100vh - 100px);
         padding: 2rem 0;
         
+        background-color: var(--theme4);
+        color: var(--theme6);
         border-top: 2px dashed var(--theme6);
+
+        overflow-y: auto;
+        z-index: 10;
+    }
+
+    #header #menubar #menulist {
+        width: 100%;
+        height: 100%;
+
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 
     #header #menubar #menulist .menuitem {
@@ -488,10 +484,6 @@ body.disable-scroll {
 
 .wrapper #main .show-shoes .shoe .product-options i:hover {
     opacity: 0.8;
-}
-
-.wrapper #main .show-shoes .shoe .product-options .icon-heart.turn-red {
-    color: red;
 }
 
 /*===========================================================
