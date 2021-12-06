@@ -8,4 +8,4 @@ Verificar arquivo `script.js`:
 
 ## Veja como está ficando a página através do GitHub Pages
 
-Visualize a página clicando no link: [https://github.com/FilipeSiota/sneacker-fads](https://github.com/FilipeSiota/sneacker-fads)
+Visualize a página clicando no link: [https://filipesiota.github.io/sneacker-fads/](https://filipesiota.github.io/sneacker-fads/)
