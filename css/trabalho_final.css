@@ -2,8 +2,6 @@
 =====================================================*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 
 :root {
     font-size: 62.5%;
@@ -104,13 +102,14 @@ html, body {
 }
 
 #header #menubar #menu-mobile {
+    display: block;
     max-width: 800px;
     width: 100%;
 }
 
 #header #menubar #menulist {
     list-style: none;
-
+    
     display: flex;
     justify-content: space-between;
 }
@@ -163,6 +162,8 @@ html, body {
 
     #header #menubar #menu-mobile {
         display: none;
+        max-width: unset;
+
         position: absolute;
         right: 0;
         top: 100px;

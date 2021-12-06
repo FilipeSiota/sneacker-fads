@@ -36,13 +36,13 @@ $(document).ready(function() {
     btnSlide.click(function() {
         if (!slide)
         {
-            imageEffect.css('background-image', 'url(../img/lil_nas_x_nike_1280px.jpg)');
+            imageEffect.css('background-image', 'url(img/lil_nas_x_nike_1280px.jpg)');
 
             slide = true;
         }
         else
         {
-            imageEffect.css('background-image', 'url(../img/prateleira-tenis-1280px.jpg)');
+            imageEffect.css('background-image', 'url(img/prateleira-tenis-1280px.jpg)');
 
             slide = false;
         }
