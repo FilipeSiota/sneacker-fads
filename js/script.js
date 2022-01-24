@@ -2,31 +2,6 @@
 
 $(document).ready(function() {
 
-    // DROPDOWN MENU
-
-    const menuIcon = $('#menu-icon');
-    const menuList = $('#menu-mobile');
-    const body = $('body');
-    var open = false;
-
-    menuIcon.click(function() {
-        menuList.slideToggle('slow');
-
-        if (!open)
-        {
-            body.css('overflow', 'hidden');
-
-            open = true;
-        }
-        else
-        {
-            body.css('overflow', 'auto');
-
-            open = false;
-        }
-        
-    })
-
     // TROCA O BACKGROUND-IMAGE DA DIV IMAGE-EFFECT ==> ALTERAÇÃO DE ESTILO DE UM ELEMENTO HTML
 
     const imageEffect = $('#slide');
@@ -69,6 +44,17 @@ $(document).ready(function() {
         }
 
     })
+})
+
+// DROPDOWN MENU
+const menuIcon = document.querySelector('#menu-icon');
+const menuList = document.querySelector('#menulist');
+const body = document.body;
+
+menuIcon.addEventListener('click', () => {
+    menuList.classList.toggle('open');
+
+    body.classList.toggle('disable-scroll');
 })
 
 // DÁ UM ALERTA DE QUE A PESSOA ADICIONOU O PRODUTO AO CARRINHO ==> UMA FORMA DE OUTPUT RESULTANTE DE CÓDIGO JAVASCRIPT >> window.alert()
