@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="https://ifrs.edu.br/canoas/wp-content/themes/ifrs-portal-theme/favicons/favicon.ico">
+    <title>Trabalho Final</title>
+
+    <link href="img/uicons-solid-rounded/css/uicons-solid-rounded.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/trabalho_final.css">
+
+    <style>
+        #main {
+            margin: 40px auto;
+            padding: 0 20px;
+            display: block;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        #namePage {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        #usersList {
+            list-style-position: inside;
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+            padding: 5px 0;
+        }
+
+        .group {
+            border-top: 1px solid var(--theme6);
+            padding-top: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.4rem;
+        }
+
+        .form-group input {
+            display: block;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.575);
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .form-group input:focus {
+            box-shadow: 0 0 2px var(--theme7);
+            border-color: var(--theme7);
+            outline: none;
+        }
+
+        #addButton {
+            margin-top: 5px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container" id="top">
+        <div id="header">
+            <div id="brand">
+                <h1>Sneacker Fads</h1>
+                <p>Você faz a moda</p>
+            </div>
+
+            <div id="menubar">
+                <div id="menu-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                    <g>
+                        <path d="M480,224H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h448c17.673,0,32-14.327,32-32S497.673,224,480,224z"/>
+                        <path d="M32,138.667h448c17.673,0,32-14.327,32-32s-14.327-32-32-32H32c-17.673,0-32,14.327-32,32S14.327,138.667,32,138.667z"/>
+                        <path d="M480,373.333H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h448c17.673,0,32-14.327,32-32S497.673,373.333,480,373.333z"/>
+                    </g>
+                    </svg>
+                </div>
+
+                <div id="menu-mobile">
+
+                    <ul id="menulist">
+                        <li class="menuitem">
+                            <a href="index.html">Início</a>
+                        </li>
+                        <li class="menuitem">
+                            <a id="selected" href="real-time-database.html">Database</a>
+                        </li>
+                        <li class="menuitem">
+                            <a href="trabalho_final_exemplo1.html">Exemplo 1</a>
+                        </li>
+                        <li class="menuitem">
+                            <a href="trabalho_final_exemplo2.html">Exemplo 2</a>
+                        </li>
+                        <li class="menuitem">
+                            <a href="trabalho_final_exemplo3.html">Exemplo 3</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper">
+
+            <div id="main">
+                
+                <h1 id="namePage">Real Time Database</h1>
+
+                <details>
+                    <summary>Users</summary>
+                    <ul id="usersList"></ul>
+                </details>
+
+                <div class="group">
+                    <form>
+                        <div class="form-group">
+                            <label for="nameInput">Nome</label>
+                            <input type="text" class="form-control" name="nameInput" id="nameInput" placeholder="Nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="ageInput">Idade</label>
+                            <input type="number" class="form-control" age="ageInput" id="ageInput" placeholder="Idade">
+                        </div>
+
+                        <button class="btn" id="addButton">Adicionar</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="bottom">
+            <p style="padding-bottom: 10px; border-bottom: 1px dashed var(--theme4); margin-bottom: 10px;">Acesse o nosso site clicando no link abaixo!</p> <!-- EXEMPLO 2 DE ESTILO INLINE -->
+
+            <p id="data">
+                <!-- CODE INJECTED BY JAVASCRIPT -->
+            </p>
+
+            <p>Designed by Filipe Mallmann Siota</p>
+
+            <script>
+                // UMA FORMA DE OUTPUT RESULTANTE DE CÓDIGO JAVASCRIPT >> .innerHTML
+                var data = new Date();
+                var anoAtual = data.getFullYear();
+                document.getElementById('data').innerHTML += "&copy;&nbsp;<a href='https://filipe.siota.com.br/ifrs/css/sneacker-fads/' target='_blank'>Sneacker Fads</a>&nbsp;" + anoAtual;
+            </script>
+        </div>
+    </div>
+
+    <a id="btn-to-top" href="#top">
+        <svg xmlns="http://www.w3.org/2000/svg" id="Bold" viewBox="0 0 24 24" width="512" height="512"><path d="M22.5,18a1.5,1.5,0,0,1-1.061-.44L13.768,9.889a2.5,2.5,0,0,0-3.536,0L2.57,17.551A1.5,1.5,0,0,1,.449,15.43L8.111,7.768a5.505,5.505,0,0,1,7.778,0l7.672,7.672A1.5,1.5,0,0,1,22.5,18Z"/></svg>
+    </a>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/app.js" type="module"></script>
+</body>
+</html>
