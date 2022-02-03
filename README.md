@@ -1,11 +1,10 @@
-# IMPLEMENTANDO JQUERY
+# FIREBASE REALTIME DATABASE
 
-Verificar arquivo `script.js`:
+- [x] Implementação do Banco de Dados
+- [ ] Utilização de requisições AJAX
 
-- a partir da linha 1: **DROPDOWN MENU**
-- a partir da linha 30: **TROCA O BACKGROUND-IMAGE DA DIV IMAGE-EFFECT**
-- a partir da linha 51: **TROCA COR DO ICONE DE CORAÇÃO**
+## Veja como está ficando o site pelo link abaixo
 
-## Veja como está ficando a página através do GitHub Pages
+#
 
-Visualize a página clicando no link: [https://filipesiota.github.io/sneacker-fads/](https://filipesiota.github.io/sneacker-fads/)
+Visualize a página clicando no link: [https://filipesiota-ifrs.web.app/](https://filipesiota-ifrs.web.app/)
