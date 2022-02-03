@@ -105,6 +105,18 @@ function appendToDatabase(data, path, callbackSuccess, callbackError) {
 //     })
 // }
 
+// // Lendo do Database
+// function readFromDatabase(path) {
+
+//     fetch(databaseURL + "/" + path + "/.json")
+//         .then(function(response) {
+//             return response.json()
+//         })
+//         .then(function(response) {
+//             console.log(response.key)
+//         })
+// }
+
 // Verifica se a página é de administrador
 const $verifyAdmin = $('a#selected').find('i.fi-sr-database');
 
