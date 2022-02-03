@@ -3,19 +3,21 @@
 - [x] (1,0) A demonstração de conhecimento no firebase hosting já é suficiente para o primeiro ponto do trabalho.
 
 - [x] (0,5) Alterar ao menos um atributo de um elemento HTML com JavaScript.
-> Linha 48 - [script.js](public/js/script.js)
+> Linha 50 - [script.js](public/js/script.js)
 
 - [x] (0,5) Alterar o estilo de ao menos um elemento HTML com JavaScript.
-> Linha 70 - [script.js](public/js/script.js)
+> Linha 364 - [database.js](public/js/database.js)
 
 - [x] (0,5) Alterar ao menos um conteúdo HTML com JavaScript.
-> Linha 45 - [script.js](public/js/script.js)
+> Linha 47 - [script.js](public/js/script.js)
 
 - [x] (0,5) Conter ao menos uma forma de output (saída) resultante de código de JavaScript.
-> Linha 345 - [database.js](public/js/database.js)
+> Linha 353 - [database.js](public/js/database.js)
 
 - [x] (1,0) Aplique ao menos 3 usos de DOM em sua página web.
-> Linha 59 - [script.js](public/js/script.js)
+> Linha 48 - [script.js](public/js/script.js)
+
+> Linha 357 - [database.js](public/js/database.js)
 
 - [x] (2,0) Implemente o uso de jQuery em seu projeto, substituindo o uso de JavaScript “puro” (pelo menos 5 usos).
 > Arquivo possui vários usos de Jquery - [database.js](public/js/database.js)

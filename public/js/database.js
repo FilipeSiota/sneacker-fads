@@ -253,6 +253,10 @@ $btnBlackFriday.on('click', function() {
             {
                 h1.innerText = "Não temos destaques da Black Friday ainda";
                 h1.style.marginBottom = "0px";
+
+                $btnBlackFriday.on('click', () => {
+                    location.reload();
+                })
             }
         }
     }).catch((error) => {
@@ -351,38 +355,30 @@ function addInterativeOptions() {
         })
 
         // Aplique ao menos 3 usos de DOM em sua página web
-        // Utiliza getElementById, getElementsByTagName, querySelector e querySelectorAll para selecionar elementos da DOM
-        const btnBlackFriday = document.getElementById("btn-black-friday");
-        const priceBestSeller = document.querySelectorAll(".best-seller p");
-        const newPrice = document.getElementsByTagName("ins");
+        
+        // Utiliza querySelector e querySelectorAll para selecionar elementos da DOM
+        const newPrice = document.querySelectorAll("ins");
     
-        if (btnBlackFriday.innerText == "Ver todos os sneackers")
+        if ($btnBlackFriday.text() == "Ver todos os sneackers")
         {
             // Alterar o estilo de ao menos um elemento HTML com JavaScript
-            priceBestSeller.forEach(price => {
-                price.style.backgroundColor = "var(--theme4)";
-                price.style.color = "var(--theme7)";
-                price.style.fontWeight = "bold";
+            newPrice.forEach(price => {
+                price.style.backgroundColor = "var(--theme7)";
             });
-    
-            for (var i = 0; i < newPrice.length; i++)
-            {
-                newPrice[i].style.backgroundColor = "var(--theme7)";
-            }
 
-            btnBlackFriday.addEventListener('click', () => {
+            $btnBlackFriday.on('click', () => {
                 location.reload();
             })
         }
         else
         {
-            btnBlackFriday.addEventListener('click', () => {
+            $btnBlackFriday.on('click', () => {
                 window.location = "#promo";
         
                 document.querySelector(".image-effect h1").innerText = "Black Friday";
                 document.querySelector(".image-effect p").style.display = "none";
         
-                btnBlackFriday.innerText = "Ver todos os sneackers";
+                $btnBlackFriday.text("Ver todos os sneackers");
             })
         }
     }
@@ -399,14 +395,14 @@ function addInterativeOptions() {
 
         $trashIcon.on('click', function() {
 
-            const productId = $(this).parent().parent().attr('id');
-            const nameProduct = $(this).parent().parent().find('h2').text();
+            const $productId = $(this).parent().parent().attr('id');
+            const $nameProduct = $(this).parent().parent().find('h2').text();
 
-            var status = confirm("Exclusão do sneacker " + nameProduct + ".\nPressione OK para confirmar ou cancele a operação.");
+            var status = confirm("Exclusão do sneacker " + $nameProduct + ".\nPressione OK para confirmar ou cancele a operação.");
 
             if (status)
             {
-                removeFromDatabase(productId);
+                removeFromDatabase($productId);
             }
         })
     }

@@ -28,6 +28,8 @@ $(document).ready(function() {
         $form.slideToggle();
     })
 
+    // Aplique ao menos 3 usos de DOM em sua página web
+    
     // MODIFICA ATRIBUTO HREF DE UM LINK QUE SERÁ USADO PARA PESQUISA E ALTERA O CONTEÚDO DO PARÁGRAFO PARA ESTAR DE ACORDO COM A PESQUISA
     const divContent = document.getElementById('content-plus-link');
     const input = document.getElementById('search');
