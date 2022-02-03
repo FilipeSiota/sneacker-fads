@@ -15,7 +15,7 @@
 > Linha 353 - [database.js](public/js/database.js)
 
 - [x] (1,0) Aplique ao menos 3 usos de DOM em sua página web.
-> Linha 48 - [script.js](public/js/script.js)
+> Linha 33 - [script.js](public/js/script.js)
 
 > Linha 357 - [database.js](public/js/database.js)
 
