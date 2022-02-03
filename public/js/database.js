@@ -314,7 +314,7 @@ function addInterativeOptions() {
 
             const $productId = $(this).parent().parent().parent().attr('id');
             const $likes = $(this).parent().find($('.likes'));
-            var numLikes = likes.text();
+            var numLikes = $likes.text();
             numLikes = parseInt(numLikes);
             
             // se a cor do coração for branca, ou seja, o ícone está desativado
