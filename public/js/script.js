@@ -42,8 +42,10 @@ $(document).ready(function() {
 
             divContent.style.display = "block";
 
+            // Alterar ao menos um conteúdo HTML com JavaScript
             extraContent.innerHTML = "Dê uma olhadinha no site da nossa patrocinadora <strong>Netshoes</strong>, talvez você encontre o produto:<br>&quot;" + content + "&quot;";
 
+            // Alterar ao menos um atributo de um elemento HTML com JavaScript
             link.href = "https://www.netshoes.com.br/busca?q=" + content;
 
             link.innerText = "Clique aqui";
@@ -54,6 +56,7 @@ $(document).ready(function() {
         }
     })
 
+    // Aplique ao menos 3 usos de DOM em sua página web
     // Utiliza getElementById, getElementsByTagName, querySelector e querySelectorAll para selecionar elementos da DOM
     const btnBlackFriday = document.getElementById("btn-black-friday");
     const priceBestSeller = document.querySelectorAll(".best-seller p");
@@ -64,6 +67,7 @@ $(document).ready(function() {
         btnBlackFriday.addEventListener('click', () => {
             window.location = "#promo";
     
+            // Alterar o estilo de ao menos um elemento HTML com JavaScript
             priceBestSeller.forEach(price => {
                 price.style.backgroundColor = "var(--theme4)";
                 price.style.color = "var(--theme7)";

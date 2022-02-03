@@ -680,6 +680,8 @@ body.disable-scroll {
 
     #addSneacker {
         border-radius: 0px;
+        border-left: none;
+        border-right: none;
     }
 }
 

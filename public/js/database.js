@@ -15,6 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const dbRef = ref(getDatabase());
+const databaseURL = "https://filipesiota-ifrs-default-rtdb.firebaseio.com";
 
 // Pega os elementos da DOM
 const $divPromo = $('#promo');
@@ -35,8 +36,27 @@ $form.on('submit', function(event) {
     // Desabilita o botão de envio do formulário para não cadastrar dois tênis iguais sem querer
     $addButton.attr("disabled", true);
 
+    var data = {
+        name: $nameInput.val(),
+        price: $priceInput.val(),
+        percDiscount: $percDiscountInput.val(),
+        image: $imageInput.val(),
+        countLikes: 0
+    }
+
     // Manda executar a função de escrever no Banco de Dados
-    appendToDatabase($nameInput.val(), $priceInput.val(), $percDiscountInput.val(), $imageInput.val());
+    appendToDatabase(data, "sneackers", () => {
+        alert("Dados adicionados ao banco de dados com sucesso!");
+
+        // Carrega os produtos na tela
+        loadProducts();
+    },
+    (error) => {
+        alert("Error: " + error);
+
+        // Carrega os produtos na tela
+        loadProducts();
+    });
 
     // Retaura os campos do formulário para vazios
     $nameInput.val("");
@@ -44,35 +64,46 @@ $form.on('submit', function(event) {
     $percDiscountInput.val("");
     $imageInput.val("");
 
-    // Carrega os produtos na tela
-    loadProducts();
-
     // Habilita o botão de envio do formulário
     $addButton.attr("disabled", false);
 });
 
 // Gravando no Database
-function appendToDatabase(name, price, percDiscount, imageURL) {
-
-    // Pega a chave gerada para usar como identificador da postagem no db
-    const postKey = push(child(ref(db), 'sneackers')).key;
-
-    // Faz a transmissão dos dados para o banco
-    set(ref(db, 'sneackers/' + postKey + '/'), {
-        id: postKey,
-        name: name,
-        price: price,
-        percDiscount: percDiscount,
-        image: imageURL,
-        countLikes: 0
+function appendToDatabase(data, path, callbackSuccess, callbackError) {
+    
+    fetch(databaseURL + "/" + path + "/.json", {
+        method: "POST",
+        body: JSON.stringify(data)
     })
-    .then(() => {
-        alert("Dados adicionados ao banco de dados com sucesso!");
+    .then(response => {
+        response.json()
+        .then(callbackSuccess)
+        .catch(error => {
+            callbackError(error)
+        })
     })
-    .catch((error) => {
-        alert("Error: " + error);
+    .catch(error => {
+        callbackError(error)
     })
 }
+
+// // Lendo do Database
+// function readFromDatabase(path, callback) {
+
+//     fetch(databaseURL + "/" + path + "/.json", {
+//         method: "GET"
+//     })
+//     .then(response => {
+//         response.json()
+//         .then(callback)
+//         .catch(error => {
+//             console.log(error);
+//         })
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     })
+// }
 
 // Verifica se a página é de administrador
 const $verifyAdmin = $('a#selected').find('i.fi-sr-database');
@@ -109,7 +140,7 @@ function loadProducts() {
 
                 const divShoe = document.createElement('div');
                 divShoe.classList.add('shoe');
-                divShoe.setAttribute('id', item.val().id);
+                divShoe.setAttribute('id', item.key);
 
                 // Transforma o valor do preço para valor monetário (BRL) - Exemplo: 120 -> R$120,00
                 var price = item.val().price * 1.0;
@@ -175,7 +206,7 @@ $btnBlackFriday.on('click', function() {
 
                     const divShoe = document.createElement('div');
                     divShoe.classList.add('shoe');
-                    divShoe.setAttribute('id', item.val().id);
+                    divShoe.setAttribute('id', item.key);
 
                     // Transforma o valor do preço para valor monetário (BRL) - Exemplo: 120 -> R$120,00
                     var price = item.val().price * 1.0;
@@ -214,14 +245,15 @@ $btnBlackFriday.on('click', function() {
 })
 
 // Lendo do Database
-function readFromDatabase(id, like) {
+function getLikesToUpdate(id, like) {
+
     get(child(dbRef, 'sneackers/')).then((snapshot) => {
         if (snapshot.exists())
         {
             snapshot.forEach((item) => {
-                if (item.val().id === id)
+                if (item.key === id)
                 {
-                    return updateDatabase(item.val().id, item.val().name, item.val().price, item.val().percDiscount, item.val().image, item.val().countLikes + like);
+                    return updateDatabase(item.key, item.val().name, item.val().price, item.val().percDiscount, item.val().image, item.val().countLikes + like);
                 }
             })
         }
@@ -235,9 +267,8 @@ function readFromDatabase(id, like) {
 }
 
 // Atualizando dados no Database
-function updateDatabase(id, name, price, percDiscount, imageURL, countLikes) {
+function updateDatabase(key, name, price, percDiscount, imageURL, countLikes) {
     const newData = {
-        id: id,
         name: name,
         price: price,
         percDiscount: percDiscount,
@@ -246,7 +277,7 @@ function updateDatabase(id, name, price, percDiscount, imageURL, countLikes) {
     };
 
     const updates = {};
-    updates['sneackers/' + id + '/'] = newData;
+    updates['sneackers/' + key + '/'] = newData;
 
     return update(ref(db), updates);
 }
@@ -260,7 +291,7 @@ function removeFromDatabase(id) {
     return loadProducts();
 }
 
-const addInterativeOptions = () => {
+function addInterativeOptions() {
 
     if (!$verifyAdmin.length)
     {
@@ -269,8 +300,8 @@ const addInterativeOptions = () => {
 
         $heartIcon.on('click', function() {
 
-            const productId = $(this).parent().parent().parent().attr('id');
-            const likes = $(this).parent().find($('.likes'));
+            const $productId = $(this).parent().parent().parent().attr('id');
+            const $likes = $(this).parent().find($('.likes'));
             var numLikes = likes.text();
             numLikes = parseInt(numLikes);
             
@@ -279,17 +310,17 @@ const addInterativeOptions = () => {
             {
                 $(this).css('color', 'red');
 
-                readFromDatabase(productId, 1);
+                getLikesToUpdate($productId, 1);
 
-                likes.text(numLikes + 1);
+                $likes.text(numLikes + 1);
             }
             else
             {
                 $(this).css('color', 'var(--theme4)');
 
-                readFromDatabase(productId, -1);
+                getLikesToUpdate($productId, -1);
 
-                likes.text(numLikes - 1);
+                $likes.text(numLikes - 1);
             }
             
         })
@@ -299,6 +330,7 @@ const addInterativeOptions = () => {
 
         $cartIcon.on('click', function() {
 
+            // Conter ao menos uma forma de output (saída) resultante de código de JavaScript
             window.alert("Você será redirecionado ao nosso Whatsapp para efetuar a compra!");
         })
     }
