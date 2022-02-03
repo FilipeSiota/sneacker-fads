@@ -55,38 +55,4 @@ $(document).ready(function() {
             divContent.style.display = "none";
         }
     })
-
-    // Aplique ao menos 3 usos de DOM em sua página web
-    // Utiliza getElementById, getElementsByTagName, querySelector e querySelectorAll para selecionar elementos da DOM
-    const btnBlackFriday = document.getElementById("btn-black-friday");
-    const priceBestSeller = document.querySelectorAll(".best-seller p");
-    const newPrice = document.getElementsByTagName("ins");
-
-    if (btnBlackFriday) {
-        
-        btnBlackFriday.addEventListener('click', () => {
-            window.location = "#promo";
-    
-            // Alterar o estilo de ao menos um elemento HTML com JavaScript
-            priceBestSeller.forEach(price => {
-                price.style.backgroundColor = "var(--theme4)";
-                price.style.color = "var(--theme7)";
-                price.style.fontWeight = "bold";
-            });
-    
-            for (var i = 0; i < newPrice.length; i++)
-            {
-                newPrice[i].style.backgroundColor = "var(--theme7)";
-            }
-    
-            document.querySelector(".image-effect h1").innerText = "Black Friday";
-            document.querySelector(".image-effect p").style.display = "none";
-    
-            btnBlackFriday.innerText = "Ver todos os sneackers";
-    
-            btnBlackFriday.addEventListener('click', () => {
-                location.reload();
-            })
-        })
-    }
 })

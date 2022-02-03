@@ -126,6 +126,7 @@ loadProducts();
 function loadProducts() {
 
     get(child(dbRef, 'sneackers/')).then((snapshot) => {
+
         $divPromo.html('');
 
         const h1 = document.createElement('h1');
@@ -200,19 +201,22 @@ $btnBlackFriday.on('click', function() {
     // Fará uma consulta ao Database
     get(child(dbRef, 'sneackers/')).then((snapshot) => {
 
+        $divPromo.html('');
+
+        const h1 = document.createElement('h1');
+        $divPromo.append(h1);
+
         if (!snapshot.exists())
         {
             h1.innerText = "Ainda não temos sneackers no catálogo";
             h1.style.marginBottom = "0px";
-
-            $divPromo.append(h1);
         }
         else
         {
             var blackFriday = false;
 
             // Para cada elemento do snapshot
-            data.forEach(function (item) {
+            snapshot.forEach(function (item) {
 
                 if (item.val().percDiscount > 0) // Se houver desconto
                 {
@@ -231,11 +235,11 @@ $btnBlackFriday.on('click', function() {
                     discountValue = discountValue.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
 
                     // Escreve o código referente a uma div de sneacker, substituindo os dados estáticos pelos dinâmicos
-                    divShoe.innerHTML = "<div class='data'><img src='" + item.val().image + "' alt='Foto do " + item.val().name + "'><h2>" + item.val().name + "</h2><p><del>" + price + "</del><ins>" + discountValue + "</ins></p></div><div class='discount'>" + item.val().percDiscount + "% OFF</div><div class='product-options'><a href='" + item.val().image + "' target='_blank'><i class='fi fi-sr-eye'></i></a><div><i class='fi fi-sr-heart icon-heart'></i><span class='likes'>" + item.val().countLikes + "</span></div><a href='https://api.whatsapp.com/send?phone=5551900000000&text=Olá, Sneacker Fads! Estava dando uma olhada no site e me interessei pelo sneacker " + item.val().name + ". Gostaria de saber se vocês possuem ele em estoque?' target='_blank'><i class='fi fi-sr-shopping-cart-add'></i></a></div>"; 
-                }
+                    divShoe.innerHTML = "<div class='data'><img src='" + item.val().image + "' alt='Foto do " + item.val().name + "'><h2>" + item.val().name + "</h2><p><del>" + price + "</del><ins>" + discountValue + "</ins></p></div><div class='discount'>" + item.val().percDiscount + "% OFF</div><div class='product-options'><a href='" + item.val().image + "' target='_blank'><i class='fi fi-sr-eye'></i></a><div><i class='fi fi-sr-heart icon-heart'></i><span class='likes'>" + item.val().countLikes + "</span></div><a href='https://api.whatsapp.com/send?phone=5551900000000&text=Olá, Sneacker Fads! Estava dando uma olhada no site e me interessei pelo sneacker " + item.val().name + ". Gostaria de saber se vocês possuem ele em estoque?' target='_blank'><i class='fi fi-sr-shopping-cart-add'></i></a></div>";
 
-                // Concatena a div de sneacker a div principal
-                $divPromo.append(divShoe);
+                    // Concatena a div de sneacker a div principal
+                    $divPromo.append(divShoe);
+                }
             })
 
             if (blackFriday)
@@ -250,8 +254,6 @@ $btnBlackFriday.on('click', function() {
                 h1.innerText = "Não temos destaques da Black Friday ainda";
                 h1.style.marginBottom = "0px";
             }
-
-            $divPromo.append(h1);
         }
     }).catch((error) => {
         console.log("Error: " + error);
@@ -347,6 +349,42 @@ function addInterativeOptions() {
             // Conter ao menos uma forma de output (saída) resultante de código de JavaScript
             window.alert("Você será redirecionado ao nosso Whatsapp para efetuar a compra!");
         })
+
+        // Aplique ao menos 3 usos de DOM em sua página web
+        // Utiliza getElementById, getElementsByTagName, querySelector e querySelectorAll para selecionar elementos da DOM
+        const btnBlackFriday = document.getElementById("btn-black-friday");
+        const priceBestSeller = document.querySelectorAll(".best-seller p");
+        const newPrice = document.getElementsByTagName("ins");
+    
+        if (btnBlackFriday.innerText == "Ver todos os sneackers")
+        {
+            // Alterar o estilo de ao menos um elemento HTML com JavaScript
+            priceBestSeller.forEach(price => {
+                price.style.backgroundColor = "var(--theme4)";
+                price.style.color = "var(--theme7)";
+                price.style.fontWeight = "bold";
+            });
+    
+            for (var i = 0; i < newPrice.length; i++)
+            {
+                newPrice[i].style.backgroundColor = "var(--theme7)";
+            }
+
+            btnBlackFriday.addEventListener('click', () => {
+                location.reload();
+            })
+        }
+        else
+        {
+            btnBlackFriday.addEventListener('click', () => {
+                window.location = "#promo";
+        
+                document.querySelector(".image-effect h1").innerText = "Black Friday";
+                document.querySelector(".image-effect p").style.display = "none";
+        
+                btnBlackFriday.innerText = "Ver todos os sneackers";
+            })
+        }
     }
     else
     {
