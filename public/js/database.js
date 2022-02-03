@@ -172,6 +172,8 @@ function loadProducts() {
                 else
                 {
                     divShoe.classList.add('normal'); // Adiciona uma classe a div
+
+                    divShoe.innerHTML += "<p>" + price + "</p>"; 
                 }
 
                 if ($verifyAdmin.length)
